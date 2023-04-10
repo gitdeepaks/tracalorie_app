@@ -94,3 +94,4 @@ tracker.addWorkout(run);
 console.log(tracker._meals)
 console.log(tracker._workouts)
 console.log(tracker._totalcalories)
+console.log('new')
