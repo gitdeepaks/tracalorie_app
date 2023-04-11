@@ -8,6 +8,8 @@ class CalorieTracker {
         this._displayCaloriesTotal();
         this._displayCaloriesConsumed();
         this._displayCaloriesBurned();
+        this._displayCaloriesRemaining();
+        this._displatCaloriesProgress();
     }
 
     //public methodes/API//
@@ -57,10 +59,26 @@ class CalorieTracker {
 
     }
 
+    _displayCaloriesRemaining() {
+        const caloriesRemainingEl = document.getElementById('calories-remaining');
+
+        const remaining = this._calorieLimit - this._totalcalories;
+        caloriesRemainingEl.innerHTML = remaining;
+    }
+
+    _displatCaloriesProgress() {
+        const progressEL = document.getElementById('calories-progress');
+        const percentage = (this._totalcalories / this._calorieLimit) * 100;
+        const width = Math.min(percentage, 100);
+        progressEL.style.width = `${width}%`;
+    }
+
     _render() {
         this._displayCaloriesTotal();
         this._displayCaloriesConsumed();
         this._displayCaloriesBurned();
+        this._displayCaloriesRemaining();
+        this.__displatCaloriesProgress();
     }
 
 }
@@ -94,4 +112,3 @@ tracker.addWorkout(run);
 console.log(tracker._meals)
 console.log(tracker._workouts)
 console.log(tracker._totalcalories)
-console.log('new')
